@@ -4,19 +4,19 @@
 
 #input block matrix
 
-inp = input('Add Matix A, separated by space:')
-A = list(map(float, inp.split()))
+#inp = input('Add Matix A, separated by space:')
+#A = list(map(float, inp.split()))
 
-#A = [0, 0, 0, 0]
+A = [11, 15, 1, 2]
 
 print ('Matrix A is:', A)
 
 #input block matrix B
 
-inp = input('Add Matix B, separated by space:')
-B = list(map(float, inp.split()))
+#inp = input('Add Matix B, separated by space:')
+#B = list(map(float, inp.split()))
 
-#B = [1, 2, 3, 4]
+B = [1, 2, 3, 4]
 
 print ('Matrix B is:', B)
 
@@ -111,23 +111,90 @@ print('-------------------END OF 2x2 MATRICES-------------------')
 #inp = input('Add Matix A, separated by space:')
 #A = list(map(float, inp.split()))
 
-A = [1.0, -5.0, 12.0, 7.0, 6.0, 2.0, 3.0, 9.0, 4.0]
+A = [9.0, 7.0, 6.0, 5.0, 4.0, 3.0, 2.0, 1.0, 0.0]
 
-print ('Matrix A is:')
-print ('(', A[0], A[1], A[2],')')
-print ('(', A[3], A[4], A[5],')')
-print ('(', A[6], A[7], A[8],')')
+
+#inpmatsize = input('Add Matix size, separated by space (example: 3 3 ):')
+#matsize = list(map(int, inpmatsize.split()))
+
+#print("Matrix size is", matsize)
+
+print('Your numbers are:', A)
+
+
+print('Matrix A is:')
+print('(', A[0], A[1], A[2], ')')
+print('(', A[3], A[4], A[5], ')')
+print('(', A[6], A[7], A[8], ')')
 
 #Det 3x3 first way
 
 det3x3_1 = ((A[0] * A[4] * A[8]) + (A[1] * A[5] * A[6]) + (A[3] * A[7] * A[2])) - ((A[6] * A[4] * A[2]) + (A[7] * A[5] * A[0]) + (A[3] * A[1] * A[8]))
 
-print (det3x3_1)
+print(det3x3_1)
 
-def matrix3_multinv(matrix, inte):
-    return [matrix[0] * inte , matrix[3] * inte, matrix[6] * inte, matrix[1] * inte, matrix[4] * inte, matrix[7] * inte, matrix[2] * inte, matrix[5] * inte, matrix[8] * inte]
+#def matrix3_multinv(matrix, inte):
+#    return [matrix[0] * inte , matrix[3] * inte, matrix[6] * inte, matrix[1] * inte, matrix[4] * inte, matrix[7] * inte, matrix[2] * inte, matrix[5] * inte, matrix[8] * inte]
 
-inte = 1 / det3x3_1
-multinv = matrix3_multinv(A, inte)
+#inte = 1 / det3x3_1
+#multinv = matrix3_multinv(A, inte)
 
-print(inte, 'Matrix', A , 'invert is', multinv)
+#print(inte, 'Matrix', A , 'invert is', multinv)
+
+#det norm sq NxN
+
+matcount = len(A)
+matcountsqrtchecknumber = matcount ** 0.5
+
+def squarecheck():
+    if matcountsqrtchecknumber - int(matcountsqrtchecknumber) == 0:
+        print("root", matcountsqrtchecknumber)
+        return 1
+    else:
+        print(matcount ** 0.5)
+        print("HZ", type(matcountsqrtchecknumber))
+        return 0
+
+print('sqrt check', squarecheck(), matcount)
+
+#[0] + n root + 2 n root etc
+
+#def firstcoloncount(HZ):
+#    for X in HZ:
+#        X + matcountsqrtchecknumber
+#    print(X)
+
+#print(firstcoloncount(A))
+
+firstcolonindex = list(range(0, matcount, int(matcountsqrtchecknumber)))
+
+firstcolonindexLEN = len(firstcolonindex)
+
+#firstcolonindexSLICED = firstcolonindex[:]
+
+#def firstcolonindexFUNC(firstcolonindex):
+#    for X in list(firstcolonindex):
+#        return firstcolonindex.index(int) if X != -1 else print('ups')
+#    print(X)
+
+#print(firstcolonindex.list(range(0, firstcolonindexLEN)))
+#print("firstcolonindexFUNC", firstcolonindexFUNC(firstcolonindex))
+#print("firstcolonindexSLICED", firstcolonindexSLICED)
+#print('firstcolonindexSLICED', firstcolonindex[0::1])
+
+#print("A[firstcolonindexSLICED]", A[firstcolonindex[0::1]])
+print("firstcolonindexLEN", firstcolonindexLEN)
+print("firstcolonindex", firstcolonindex)
+
+print("matcount", matcount)
+
+print(A[firstcolonindexLEN])
+
+print("First colon:", A[firstcolonindex[0]], A[firstcolonindex[1]], A[firstcolonindex[2]])
+
+#def NAME():
+#   for I in firstcolonindex
+#
+#
+#
+#
